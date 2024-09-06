@@ -160,7 +160,7 @@ servers and scaling them up & down requires a bunch of careful orchestration usu
 servers can subscribe to that topic. So server A is gonna tell redis: I have user 1, any messages for the topic of user 1,
 should come back to me and server C does the same thing. Now when server A wants to send msg to server c, so that user 3 gets it,
 it's gonna publish to the topic of user 3.
-Redis pub sub is at most once delivery. Which is surprisingly useful in spite of it's reliability issues. But if you need to
+**Redis pub sub is at most once delivery.** Which is surprisingly useful in spite of it's reliability issues. But if you need to
 **guarantee** that the messages eventually arrive and processed, you have to use sth else. But redis pub sub is very fast.
 So redis pub-sub is the registry that knew which host(server) each user was connected to.
 If server A goes down, it's user can use server B and this server registers it's publication to that topic and for a while those messages
